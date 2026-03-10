@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubTrack - Add Subscription</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gradient-to-r from-teal-100 via-emerald-50 to-orange-100 min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-4">
+                    <img src="assets/logo.webp" alt="SubTrack Logo" class="w-16 h-16 rounded-full">
+                    <a href="/dashboard" class="text-2xl font-extrabold text-teal-700 hover:text-teal-800 transition">
+                        SubTrack
+                    </a>
+                </div>
+                <a href="/dashboard" class="px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-xl font-semibold shadow-md transition">
+                    <i class="fas fa-arrow-left mr-2"></i> Back to Dashboard
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow">
+
+        <div class="bg-white rounded-3xl shadow-2xl transform hover:scale-102 transition-transform duration-300">
+
+            <div class="p-6 border-b border-gray-200">
+                <h2 class="text-3xl font-bold text-teal-600">Add New Subscription</h2>
+            </div>
+
+            <form id="subscriptionForm" class="p-6 space-y-6">
+                <div id="alertContainer"></div>
+
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
+                        Subscription Name
+                    </label>
+                    <input type="text" id="name" name="name" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-200"
+                        placeholder="e.g., Netflix, Spotify, Adobe">
+                </div>
+
+                <div>
+                    <label for="category" class="block text-sm font-medium text-gray-700 mb-2">
+                        Category
+                    </label>
+                    <select id="category" name="category" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-200">
+                        <option value="">Select a category</option>
+                        <option value="Education">Education</option>
+                        <option value="Streaming">Streaming</option>
+                        <option value="TV">TV</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Music">Music</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="price" class="block text-sm font-medium text-gray-700 mb-2">
+                            Price
+                        </label>
+                        <div class="relative">
+                            <span class="absolute left-3 top-3 text-gray-500">₹</span>
+                            <input type="number" id="price" name="price" step="0.01" min="0" required
+                                class="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-200"
+                                placeholder="0.00">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="frequency" class="block text-sm font-medium text-gray-700 mb-2">
+                            Billing Frequency
+                        </label>
+                        <select id="frequency" name="frequency" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-200">
+                            <option value="">Select frequency</option>
+                            <option value="Monthly">Monthly</option>
+                            <option value="Yearly">Yearly</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="renewalDate" class="block text-sm font-medium text-gray-700 mb-2">
+                        Next Renewal Date
+                    </label>
+                    <input type="date" id="renewalDate" name="renewalDate" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-200">
+                </div>
+
+                <div class="flex justify-end space-x-4 pt-6">
+                    <a href="/dashboard" 
+                        class="px-6 py-3 border border-gray-300 rounded-xl text-gray-700 hover:bg-gray-50 transition duration-200">
+                        Cancel
+                    </a>
+                    <button type="submit"
+                        class="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-xl font-semibold shadow-md transition duration-200">
+                        Add Subscription
+                    </button>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="js/subscription.js"></script>
+</body>
+</html>

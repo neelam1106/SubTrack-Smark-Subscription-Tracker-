@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubTrack - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+</head>
+<body class="bg-gradient-to-r from-teal-100 via-emerald-50 to-orange-100 min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+
+                <!-- Logo + Title -->
+                <div class="flex items-center space-x-3">
+                    <img src="assets/logo.webp" alt="SubTrack Logo" class="w-16 h-16 rounded-full">
+                    <a href="/dashboard" class="text-2xl font-extrabold text-teal-700 hover:text-teal-800 transition">
+                        SubTrack
+                    </a>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="flex items-center space-x-6">
+                    <a href="/add-subscription" class="text-teal-600 hover:text-teal-700 font-medium">Add Subscription</a>
+                    <a href="/profile" class="text-teal-600 hover:text-teal-700 font-medium">Profile</a>
+                    <a href="/contact" class="text-teal-600 hover:text-teal-700 font-medium">Contact Us</a>
+                    <a href="/about" class="text-teal-600 hover:text-teal-700 font-medium">About Us</a>
+                    <a href="/settings" class="text-teal-600 hover:text-teal-700 font-medium">Settings</a>
+                    <button onclick="logout()" class="text-red-600 font-medium hover:text-red-700 transition">Logout</button>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- Analytics Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white rounded-3xl shadow-2xl p-6 transform hover:scale-102 transition duration-300">
+                <div class="flex items-center">
+                    <div class="bg-teal-100 p-4 rounded-xl">
+                        <i class="fa-solid fa-calendar-days text-teal-600 text-xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm text-gray-600">Monthly Total</p>
+                        <p id="monthlyTotal" class="text-2xl font-bold text-gray-800">₹0.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-2xl p-6 transform hover:scale-102 transition duration-300">
+                <div class="flex items-center">
+                    <div class="bg-orange-100 p-4 rounded-xl">
+                        <i class="fa-solid fa-chart-line text-orange-600 text-xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm text-gray-600">Yearly Total</p>
+                        <p id="yearlyTotal" class="text-2xl font-bold text-gray-800">₹0.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-2xl p-6 transform hover:scale-102 transition duration-300">
+                <div class="flex items-center">
+                    <div class="bg-purple-100 p-4 rounded-xl">
+                        <i class="fas fa-list text-purple-600 text-xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm text-gray-600">Active Subscriptions</p>
+                        <p id="totalSubscriptions" class="text-2xl font-bold text-gray-800">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subscriptions List -->
+        <div class="bg-white rounded-3xl shadow-2xl transform hover:scale-102 transition duration-300">
+            <div class="p-6 border-b border-gray-200">
+                <h2 class="text-2xl font-bold text-teal-600">Your Subscriptions</h2>
+            </div>
+            <div id="subscriptionsList" class="p-6">
+                <div class="text-center py-8">
+                    <i class="fas fa-spinner fa-spin text-gray-400 text-2xl mb-2"></i>
+                    <p class="text-gray-600">Loading subscriptions...</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+
+</body>
+</html>
